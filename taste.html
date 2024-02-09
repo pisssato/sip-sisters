@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="site">
+    <meta name="keywords" content="beer, testing, beershop">
+    <link rel="stylesheet" href="header_footer.css">
+    <link rel="stylesheet" href="css/taste.css">
+    <link rel="icon" type="image/png" href="assets/img/beerlogo2back.png">
+    <script src="https://kit.fontawesome.com/294f60d434.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>Twenty beers - Register</title>
+
+    <script>
+        function showGreeting(event) {
+            event.preventDefault();
+            console.log("called");
+            if (document.getElementById("password").value !== "") {
+                document.getElementById("form-container").style.display = "none";
+                document.getElementById("para").style.display = "none";
+                document.getElementById("hidden_para_not").style.display = "flex";
+                console.log("pass has  value")
+            }
+            else {
+                console.log("pass empty")
+                document.getElementById("form-container").style.display = "none";
+                document.getElementById("para").style.display = "none";
+                document.getElementById("hidden_para").style.display = "flex"
+                document.getElementById("hide_p").style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="logo_text">
+            <a href="index.html">TWENTY BEERS</a>
+        </div>
+        <div class="navbar">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="tasting.html">Tasting</a>
+                <a href="beers.html">Beers</a>
+                <a href="ourStory.html">Our story</a>
+                <a class="current" href="taste.html">Register</a>
+            </nav>
+            <div class="toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+
+        <div class="dropdown_menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tasting.html">Tasting</a></li>
+                <li><a href="beers.html">Beers</a></li>
+                <li><a href="ourStory.html">Our story</a></li>
+                <li><a href="taste.html">Register</a></li>
+            </ul>
+        </div>
+        <button id="backToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+    </header>
+
+
+    <main>
+        <article class="article_form">
+            <div class="para" id="para">
+                <p>Fill the form to schedule your beer degustation with us!</p>
+            </div>
+            <div class="pass_entered" style="display:none;" id="hidden_para">
+                <p id="hide_p">Thank you for your trust. You will recieve detailed
+                    information about your appointment at the email address you entered. We are exited
+                    to meet you. </p>
+                <div class="if-pass" id="if-pass">
+                    <label for="passw">Create a password <span>*</span>:</label><br> <br>
+                    <input type="password" id="passw" name="passw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                    <button id="reg_button" onclick="thankYou()">Register</button>
+                    <div class="valid">
+                        <span id="must-contain">Your password must contain the following:</span>
+                        <p id="lowercase" class="red">lowercase letter</p>
+                        <p id="capital" class="red">uppercase letter</p>
+                        <p id="number" class="red">number</p>
+                        <p id="length" class="red">at least 8 symbols</p>
+                        <style>
+                            .red {
+                                color: rgb(142, 7, 7);
+                            }
+
+                            .green {
+                                color: rgb(14, 112, 14);
+                            }
+                            #must-contain{
+                                line-height: 0.5;;
+                            }
+                        </style>
+                        <script>
+                            let input = document.getElementById("passw");
+                            input.onfocus = function () {
+                                document.getElementById("valid").style.display = "block";
+                            }
+                            input.onblur = function () {
+                                document.getElementById("valid").style.display = "none";
+                            }
+
+                            let letter = document.getElementById("lowercase");
+                            let capital = document.getElementById("capital");
+                            let number = document.getElementById("number");
+                            let length = document.getElementById("length");
+
+                            // lowercase validation
+                            function validLower() {
+                                let lower = /[a-z]/g;
+                                if (input.value.match(lower)) {
+                                    letter.classList.remove("red");
+                                    letter.classList.add("green");
+                                } else {
+                                    letter.classList.remove("green");
+                                    letter.classList.add("red");
+                                }
+                            }
+
+                            // uppercase validation
+                            function validUpper() {
+                                let upper = /[A-Z]/g;
+                                if (input.value.match(upper)) {
+                                    capital.classList.remove("red");
+                                    capital.classList.add("green");
+                                } else {
+                                    capital.classList.remove("green");
+                                    capital.classList.add("red");
+                                }
+                            }
+
+                            // number validation
+                            function validNum() {
+                                let num = /[0-9]/g;
+                                if (input.value.match(num)) {
+                                    number.classList.remove("red");
+                                    number.classList.add("green");
+                                } else {
+                                    number.classList.remove("green");
+                                    number.classList.add("red");
+                                }
+                            }
+
+                            // length validation
+                            function validLength() {
+                                if (input.value.length > 8) {
+                                    length.classList.remove("red")
+                                    length.classList.add("green")
+                                } else {
+                                    length.classList.remove("green")
+                                    length.classList.add("red")
+                                }
+                            }
+
+                            input.onkeyup = function () {
+                                validLower();
+                                validUpper();
+                                validNum();
+                                validLength();
+                            }
+                            function thankYou() {
+                                console.log("execute thankYou()")
+                                if (letter.classList.contains("green") &&
+                                    capital.classList.contains("green") &&
+                                    number.classList.contains("green") &&
+                                    length.classList.contains("green")) {
+                                        console.log("if true")
+                                    document.getElementById("hide_p").style.display = "flex";
+                                    document.getElementById("if-pass").style.display = "none";
+                                }
+                                else {
+                                    console.log("else false")
+                                    document.getElementById("must-contain").innerHTML = "Incorrect input. Your password must contain the following:"
+                                }
+                            }
+                        </script>
+
+                    </div>
+                </div>
+            </div>
+            <div class="pass_not_entered" style="display:none;" id="hidden_para_not">
+                We are glad that you are joining us again! So exited to see you soon! You will recieve detailed
+                information about your appointment at the email address you entered.
+            </div>
+            <div class="form-container" id="form-container">
+                <form name="taste_form" action="" method="post" id="forms">
+                    <div class="name">
+                        <input type="text" placeholder="Your first name" id="fName" required>
+                        <input type="text" placeholder="Your last name" id="lName" required>
+                    </div>
+                    <div class="phone">
+                        <input type="tel" id="phoneNumber" value="+359 " placeholder="Phone number" required>
+                    </div>
+                    <div class="mails">
+                        <input type="email" id="mail" placeholder="example@gmail.com" required>
+                    </div>
+                    <div class="city">
+                        <label for="city">Select a store:</label>
+                        <select name="city" id="city" required>
+                            <option value="Plovdiv">Plovdiv, "Street", 14</option>
+                            <option value="Shumen">Shumen, "Other Street", 22</option>
+                            <option value="Varna">Varna, "Morska" 15</option>
+                        </select>
+                    </div>
+                    <div class="people">
+                        <label for="ppl">Select a group up to 10 people:</label>
+                        <input type="number" value="1" max="10" min="1" id="ppl" name="ppl">
+                    </div>
+                    <div class="date-time">
+                        <div class="date">
+                            <label for="dateInput">Choose a date:</label>
+                            <input type="date" id="dateInput" min="" required value="2024-01-15">
+
+                            <script>
+                                document.getElementById('dateInput').min = validateDate();
+                                function validateDate() {
+                                    var currentDate = new Date();
+                                    currentDate.setDate(currentDate.getDate() + 1);
+                                    var year = currentDate.getFullYear();
+                                    var month = currentDate.getMonth() + 1;
+                                    var day = currentDate.getDate();
+                                    var min_date = year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+                                    return min_date;
+                                }
+                            </script>
+                        </div>
+                    </div>
+                    <div class="pass">
+                        <label for="password">
+                            If you are already our client, enter a password<a href="#pass_info">*</a>:
+                        </label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                    <div class="data">
+                        <input type="checkbox" name="data" id="data">
+                        <label for="data">I agree to the terms and conditions of data processing.</label>
+                    </div>
+                    <script>
+                        function consent() {
+                            let a = document.getElementById("data")
+                            let b = document.getElementById("age")
+                            let err = document.getElementById("error-message")
+                            let form = document.getElementById("form-container")
+                            if (a.checked == true && b.checked == true) {
+                                showGreeting(event);
+                            }
+                            else {
+                                err.style.display = "flex"
+                                err.innerHTML = "Please agree to the terms."
+                            }
+                        }
+
+                    </script>
+                    <div class="age">
+                        <input type="checkbox" name="age" id="age">
+                        <label for="age"> I confirm that I am 18 years or older.</label>
+                    </div>
+                    <p id="error-message" class="error-message" style="display:none">something</p>
+                    <!--<div class="sub">
+                        <input type="submit" name="submit" id="submit" value="Submit"
+                            onclick="consent(), showGreeting()">
+                    </div>-->
+                    <div class="but">
+                        <button onclick="consent()" id="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- <img src="assets/img/collage.png" alt="collage" id="collage">-->
+        </article>
+    </main>
+    <div class="pass_info" id="pass_info">
+        <p> <span>*</span> If you haven't indulged in our tasting adventure yet, you're missing out on joining our
+            exclusive circle! We keep a watchful eye on our valued clients. With every return, expect special treats
+            as you officially become part of our tight-knit family. To become one of our esteemed clients, fill out the
+            registration form.
+            After that, you'll be asked to set up a password for a key to unlocking a world of delightful sips.
+            Cheers to turning every drink into a memorable experience!</p>
+    </div>
+    <footer>
+        <div class="subscribe-container">
+            <div class="sub_text">
+                Subscribe for our newsletter now.
+            </div>
+            <div class="subscribe">
+                <input type="email" name="email" placeholder="example@gmail.com">
+                <a href="#" id="sub_link">
+                    <label for="email">subscribe
+                    </label>
+                </a>
+            </div>
+        </div>
+        <div class="about_us">
+            <div class="address">
+                <h4>Visit us</h4>
+                <ul style="list-style: none;">
+                    <li><i class="fa-solid fa-location-dot"></i>
+                        Plovdiv, "Street", 14 </li>
+                    <li><i class="fa-solid fa-location-dot"></i>
+                        Shumen, "Other Street", 22</li>
+                </ul>
+            </div>
+            <div class="mail">
+                <h4>Contact us</h4>
+                <ul style="list-style: none;">
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        +359 88 0808
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-envelope"></i>
+                        my_gmail@gmail.com
+                    </li>
+                </ul>
+            </div>
+            <div class="socials">
+                <h4>Find us</h4>
+                <ul style="list-style: none;" class="icons">
+                    <li><a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+<!--TODO: create a new content for taste.html-->
+
+
+<!--TODO: change the position of the TASTE REGISTER-->
+
+</html>

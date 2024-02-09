@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="site">
+    <meta name="keywords" content="beer, testing, beershop">
+    <link rel="stylesheet" href="header_footer.css">
+    <link rel="stylesheet" href="css/tasting.css">
+    <link rel="icon" type="image/png" href="assets/img/beerlogo2back.png">
+    <script src="https://kit.fontawesome.com/294f60d434.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <title>Twenty beers - Tasting</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo_text">
+            <a href="index.html">TWENTY BEERS</a>
+        </div>
+        <div class="navbar">
+            <nav>
+                <a href="index.html">Home</a>
+                <a class="current" href="tasting.html">Tasting</a>
+                <a href="beers.html">Beers</a>
+                <a href="ourStory.html">Our story</a>
+                <a href="taste.html">Register</a>
+            </nav>
+        <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        </div>
+
+        <div class="dropdown_menu">
+            <ul>
+                 <li><a href="index.html">Home</a></li>
+                <li><a href="tasting.html">Tasting</a></li>
+               <li><a href="beers.html">Beers</a></li>
+             <li><a href="ourStory.html">Our story</a></li>
+             <li><a href="taste.html">Register</a></li>
+            </ul>
+        </div>
+        <button id="backToTopBtn"><i class="fa-solid fa-arrow-up"></i></button>
+    </header>
+
+    <main>
+        <div class="all-cont">
+            <h3>Here are the answers to some questions you might have,
+                before coming to our degustation session:
+            </h3>
+
+            <div class="chapter">
+                <div class="text-title">
+                    <h4>How long are the sessions and when are they happening?</h4>
+                    <div class="text">
+                        Our beer degustation sessions are designed to accommodate your schedule, taking place every day,
+                        including weekends from 18:00 to 20:00. Each session typically lasts an hour or two hours,
+                        providing
+                        you with a perfect opportunity to immerse yourself in the world of craft beer. Whether you're a
+                        weekday
+                        enthusiast or prefer weekend indulgence,
+                        our daily sessions ensure you can enjoy the experience at your convenience.
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="assets/img/when.jpg" alt="">
+                </div>
+            </div>
+            <div class="chapter">
+                <div class="text-title">
+                    <h4>What is the cost of a session?</h4>
+                    <div class="text">
+                        The cost per person for our beer degustation sessions is from 50.00 to 70.00 lv.
+                        We believe in fostering a sense of community and sharing the joy of beer exploration with
+                        friends and family.
+                        Therefore, we offer enticing group discounts for gatherings of more
+                        participants.
+                        It's a fantastic way to enhance the experience by enjoying the flavors together. Click at our pricelist
+                        to choose your best deal:
+                    </div>
+                </div>
+                <div class="image">
+                    <img style="cursor: pointer;transition: transform 0.2s;" src="assets/img/price_list.jpg" id="prices"
+                        alt="price-list">
+                    <script>
+                        const image = document.getElementById("prices");
+                        image.addEventListener('click', function () {
+                            this.classList.toggle('enlarged')
+                        })
+                    </script>
+                </div>
+            </div>
+            <div class="chapter">
+                <div class="text-title">
+                    <h4>Is prior reservation required for the session? </h4>
+                    <div class="text">
+                        Yes, it is highly recommended to make a prior reservation for our beer degustation sessions. 
+                        This ensures that we can provide you with the best experience, adequate seating, and personalized service. 
+                        Reservations can be made through our online booking system or by contacting our customer service.
+                </div>
+                </div>
+                <div class="image">
+                    <img src="assets/img/2065.jpg" alt="">
+                </div>
+            </div>
+           
+                    <div class="chapter">
+                         <div class="text-title">
+                    <h4>Can we customize the beer selection for our group?</h4>
+                    <div class="text">
+                        To maintain an element of surprise and ensure a diverse experience, our beer degustation sessions come with a 
+                        curated selection that caters to various tastes. While customization might not be available for individual preferences, 
+                        rest assured that our selection is crafted to offer something special for everyone in your group. 
+                        We look forward to sharing an array of flavors that will leave a lasting impression on your beer-tasting adventure! <br><br>
+                        Note: "Beer selection of the month" shows you the highest-rated beers from our clients during their sessions during the last month.
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="assets/img/Hospitality_Insights_EHL_Periodic_Table.jpg" alt="">
+                </div>
+            </div> 
+        </div>
+    </main>
+    <footer>
+        <div class="subscribe-container">
+            <div class="sub_text">
+                Subscribe for our newsletter now.
+            </div>
+            <div class="subscribe">
+                <input type="email" name="email" placeholder="example@gmail.com">
+                <a href="#" id="sub_link">
+                    <label for="email">subscribe
+                    </label>
+                </a>
+            </div>
+        </div>
+        <div class="about_us">
+            <div class="address">
+                <h4>Visit us</h4>
+                <ul style="list-style: none;">
+                    <li><i class="fa-solid fa-location-dot"></i>
+                        Plovdiv, "Street", 14 </li>
+                    <li><i class="fa-solid fa-location-dot"></i>
+                        Shumen, "Other Street", 22</li>
+                </ul>
+            </div>
+            <div class="mail">
+                <h4>Contact us</h4>
+                <ul style="list-style: none;">
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        +359 88 0808
+                    </li>
+                    <li>
+                        <i class="fa-regular fa-envelope"></i>
+                        my_gmail@gmail.com
+                    </li>
+                </ul>
+            </div>
+            <div class="socials">
+                <h4>Find us</h4>
+                <ul style="list-style: none;" class="icons">
+                    <li><a href="https://www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://www.twitter.com"><i class="fa-brands fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
